@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Asynchrony
 {
@@ -6,7 +8,9 @@ namespace Asynchrony
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            FileReader fileReader = new FileReader();    
+            Console.WriteLine(fileReader.Adder().GetAwaiter().GetResult());
+            Console.ReadKey();
         }
     }
 }
