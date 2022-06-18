@@ -31,10 +31,12 @@ namespace Asynchrony
         public async Task<string> Adder()
         {
             Console.WriteLine("start adder");
-            return await Task.Run( () =>
+            return await Task.Run( async () =>
             {
-                
-                return HelloReader().GetAwaiter().GetResult() + " " + WorldReader().GetAwaiter().GetResult();
+                var a = await HelloReader();
+                var b = await WorldReader();
+
+                return a + " " + b;
             });
         }
     }
